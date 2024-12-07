@@ -42,5 +42,40 @@ int main() {
     auto addToX = [&x](int y) -> int {return x + y;};
     std::cout << addToX(10) << std::endl;
 
+    int var = 10;
+    auto lam = [var]() mutable { // if there is not muttable it generates an error, because its READ-ONLY
+        std::cout << ++var << std::endl;
+    };
+    lam();
+    std::cout << var << std::endl;
+
+    auto fun = [&var]() { // mutable not neccessery because var is accessed by refference
+        var++;
+    };
+    fun();
+    std::cout << "fun output " << var << std::endl;
+
+    auto lam2 = []() mutable noexcept -> int { // noexcept promises the complire that this lambda function will not throw exception
+        return 0;                               // compiler optimizes code after seeing that this function will not throw exception
+    };
+    std::cout << lam2() << std::endl;
+
     return 0;
 }
+
+/*
+
+    GENERAL SYNTAX
+
+    auto anonymous_function_name = [capture clause] (parameters) mutable noexcept -> return_type {
+        body
+    };
+
+    mutable allows changing accessed variables by value specified in capture clause
+    if there is not mutable keyword compiler generates error because content is read-only
+
+    noexcept (or throw() in older versions) garantees that this anonymous functoin will NOT throw an exception
+
+    -> return_type specifies return type, it is optional 
+
+*/

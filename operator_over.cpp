@@ -5,6 +5,12 @@ It is an idea of giving special meaning to an existing operator in C++ without c
 - Operator overloading allows user-defined types to behave like built-in types, making the code easier to understand and use. (readability)
 - Simplified Syntax
 - Supports Customization
+
+cons:
+- overloaded operators arent inherited
+- Overloading too many operators for a class might confuse users and increase maintenance complexity
+- Not Always Intuitive
+- Debugging overloaded operators can be difficult because their implementation is not immediately visible.
 */
 
 #include <iostream>

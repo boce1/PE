@@ -1,3 +1,12 @@
+/*
+in C++, Operator overloading is a compile-time polymorphism. 
+It is an idea of giving special meaning to an existing operator in C++ without changing its original meaning.
+
+- Operator overloading allows user-defined types to behave like built-in types, making the code easier to understand and use. (readability)
+- Simplified Syntax
+- Supports Customization
+*/
+
 #include <iostream>
 
 class complex {

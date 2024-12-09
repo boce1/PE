@@ -1,3 +1,16 @@
+/*
+In order to initialize date variable, I need to use initializer list or default constructor
+If i use default constructor for Date then in Apointement constructor i must change atributes to the new ones
+
+Explanation:
+When initializing Apointment and not using initizlizer list
+all member variables need to be defined first before consructor Apointment executes.
+I Date doesnt have default constructor then it gives an error.
+
+If I want to avoid making default constructor for Date, then I need to use Initializer list.
+Initializer list defines values for all members before constuctor executes.
+*/
+
 #include <iostream>
 #include <string>
 

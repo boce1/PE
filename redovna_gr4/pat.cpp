@@ -10,6 +10,9 @@ I Date doesnt have default constructor then it gives an error.
 If I want to avoid making default constructor for Date, then I need to use Initializer list.
 Initializer list defines values for all members before constuctor executes.
 In that case Date needs copy constructor
+but
+in this case is not neccessary because compiler does shadow copy
+and theres no dynamicly alocated memory and this case is fine
 */
 
 #include <iostream>

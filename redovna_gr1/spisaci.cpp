@@ -13,7 +13,7 @@ class Reader {
 
 class Library : public Reader {
     private:
-        std::string status;
+        std::string status; // it can be bollean
         std::string bookName;  
     public:
         Library(std::string readerName, int readerId, std::string status, std::string bookname) : Reader(readerName, readerId), status(status), bookName(bookname) {}

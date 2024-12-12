@@ -1,0 +1,57 @@
+source: Chat GPT
+
+Double dispatch is technique used for deciding wich behavior from polymorphic structure should object use
+based on not 1 object type (type of the object calling function), but 2 (type of object calling function and type of object passed as the parameter).
+
+It is used to create more dynamic interface for solving more complex problems.
+
+Single Dispatch: Regular polymorphism in C++ (via virtual functions) allows a method call to be resolved 
+based on the runtime type of the object on which the method is called.
+
+Double Dispatch: Extends this concept to resolve a method call 
+based on the runtime types of two objects, enabling more specific behavior.
+
+Example:
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Shape; // Forward declaration
+
+class Shape {
+public:
+    virtual ~Shape() {}
+    virtual void interactWith(Shape& other) = 0; // Accept a reference to another shape
+    virtual void interactWithCircle(class Circle& circle) = 0;
+    virtual void interactWithRectangle(class Rectangle& rectangle) = 0;
+};
+
+class Circle : public Shape {
+public:
+    void interactWith(Shape& other) override {
+        other.interactWithCircle(*this); // Delegate to the other shape
+    }
+
+    void interactWithCircle(Circle& circle) override {
+        cout << "Circle interacts with Circle." << endl;
+    }
+
+    void interactWithRectangle(Rectangle& rectangle) override {
+        cout << "Circle interacts with Rectangle." << endl;
+    }
+};
+
+class Rectangle : public Shape {
+public:
+    void interactWith(Shape& other) override {
+        other.interactWithRectangle(*this); // Delegate to the other shape
+    }
+
+    void interactWithCircle(Circle& circle) override {
+        cout << "Rectangle interacts with Circle." << endl;
+    }
+
+    void interactWithRectangle(Rectangle& rectangle) override {
+        cout << "Rectangle interacts with Rectangle." << endl;
+    }
+};

@@ -1,0 +1,54 @@
+static NO-CONST variables must be initialized outside the class
+because static variable member belongs to all objects of that class
+
+static const variable can be initialized inside a class
+
+static variables can be accessed with ClassName::variable_name and also with instances
+
+static methods can be accessed the same way
+
+Example:
+#include <iostream>
+
+class Example {
+  private:
+    
+    int y;
+  public:
+  static const int x = 10;
+    Example(int y) : y(y) {}
+    int getX() const {
+      return x;
+    }
+    int getY() const {
+      return y;
+    }
+    
+    static int add() {
+      return x + 90;
+    }
+};
+
+int main() 
+{
+    Example e1(3);
+    std::cout << e1.getY() << std::endl;
+    std::cout << e1.getX() << std::endl;
+    std::cout << Example::x << std::endl;
+    std::cout << Example::add() << std::endl;
+    std::cout << e1.Example::add() << std::endl;
+    std::cout << e1.add() << std::endl;
+    return 0;
+}
+
+Output:
+3
+10
+10
+100
+100
+100
+
+
+if x wasnt const then it had to be initialized outside the class
+Example::x = 10;

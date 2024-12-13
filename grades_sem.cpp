@@ -108,9 +108,8 @@ class GradeSemester {
             return 0;
         }
 
-        GradeSemester& operator=(const GradeSemester& other) {
+        void operator=(const GradeSemester& other) {
             *this = GradeSemester(other);
-            
         }
 
         friend std::ostream& operator<<(std::ostream& os, const GradeSemester& gradeSem);

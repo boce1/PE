@@ -1,0 +1,39 @@
+Making function or class friend will allow to access private and protected members of that function
+without getters and setters.
+
+Note: Method of class cant be friend function to another class
+        only class itself can be friend to another class
+
+Example for friend function:
+Overriding output operator in operator_over.cpp is example of friend function
+
+Example for friend class:
+#include <iostream>
+
+class B;
+
+class A {
+    private:
+        int x;
+    public:
+        A(int x) : x(x) {}
+    friend class B;
+};
+
+class B {
+    public:
+        int getA_x(const A& a) const {
+            return a.x;
+        }
+};
+
+int main()
+{
+    A a1(10);
+    B b1;
+    std::cout << b1.getA_x(a1);
+    return 0;
+}
+
+Output: 
+10

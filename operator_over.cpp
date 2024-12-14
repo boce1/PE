@@ -11,6 +11,11 @@ cons:
 - Overloading too many operators for a class might confuse users and increase maintenance complexity
 - Not Always Intuitive
 - Debugging overloaded operators can be difficult because their implementation is not immediately visible.
+
+Предефиниране на оператори в C++ позволява на програмистите да 
+задават поведението на операторите за потребителски дефинирани типове 
+данни. Това включва предефиниране на оператори като +, -, *, / и други за 
+потребителски класове. 
 */
 
 #include <iostream>

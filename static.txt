@@ -52,3 +52,28 @@ Output:
 
 if x wasnt const then it had to be initialized outside the class
 Example::x = 10;
+
+In c++ fucntion and method can be also static. They cannot access non-static member because
+they dont belong to the class but to the objects. Static function can be calles with a class name or with instances.
+Example:
+
+#include <iostream>
+
+class MyClass {
+private:
+    static int counter; // Shared among all objects
+public:
+    static void increment() {
+        ++counter; // Access static members
+        std::cout << "Counter: " << counter << std::endl;
+    }
+};
+
+int MyClass::counter = 0; // Initialize the static member outside the class
+
+int main() {
+    MyClass::increment(); // Call static function
+    MyClass obj;
+    obj.increment();      // Also valid
+    return 0;
+}

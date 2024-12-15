@@ -48,3 +48,8 @@ int main() {
     r1.showInfo();
     return 0;
 }
+
+/*
+Yes, in C++, the parameters in a constructor’s initializer list can have the same names as the member variables. When this happens, 
+the member variables are accessed using the this pointer to distinguish them from the parameters.
+*/

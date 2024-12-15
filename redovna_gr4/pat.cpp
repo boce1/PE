@@ -67,9 +67,32 @@ std::ostream& operator<<(std::ostream& os, const Apointment& ap) {
     return os;
 }
 
-int main() {    
+int main() {  
     std::string medicine[] = {"skopolamin", "lsd", "methamphetamin", "cocaine", "morphin"};
     Apointment a1("1232220", "Boyan", "ekzistencialna kriza", Date(1,1,2024), medicine);
     std::cout << a1;
     return 0;
 }
+
+/*
+With initializer list 
+Apointment constructor defines values when creating the object Date
+
+Without initializer list
+Class Apointment first declares object Date and then defines its atributes in constructors
+This might be a problem if Date doesnt have default constructor
+-------
+When calling the destructor Date object will be first destoyed then Apointment
+*/
+
+
+
+/*
+NOTE:
+Lets say I have arbitrury class A and it has constructor with parameters A(parameter list) {}
+that means that it doesnt have default constructor.
+In main function if declare object of type A without parameters
+    A a_instanse;
+it gives an error
+    no matching function for call to 'A::A()'
+*/

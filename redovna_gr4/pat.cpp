@@ -5,13 +5,13 @@ If i use default constructor for Date then in Apointement constructor i must cha
 Explanation:
 When initializing Apointment and not using initizlizer list
 all member variables need to be defined first before consructor Apointment executes.
-I Date doesnt have default constructor then it gives an error.
+If Date doesnt have default constructor then it gives an error.
 
 If I want to avoid making default constructor for Date, then I need to use Initializer list.
 Initializer list defines values for all members before constuctor executes.
 In that case Date needs copy constructor
 but
-in this case is not neccessary because compiler does shadow copy
+in this case is not neccessary because compiler does shallow copy
 and theres no dynamicly alocated memory and this case is fine
 */
 
@@ -95,4 +95,13 @@ In main function if declare object of type A without parameters
     A a_instanse;
 it gives an error
     no matching function for call to 'A::A()'
+*/
+
+/*
+INITIALIZER LIST DEFINITION:
+Initializer list is way of initizlizing member variables before constructor of the class is being exectuted.
+Order of initializing does not depend of the order of initializing list, but of the order of the declaring member variables.
+Initializer list is usefull when at least one member fucntion is const or reference type.
+When member is const when creating an object const member takes default value and cant be changed.
+With initializer list value can be passed to the const member while creating it.
 */

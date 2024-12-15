@@ -29,7 +29,7 @@ class Patient {
         std::string injury;
         Date apoitmentDate;
     public:
-        Patient(std::string name, std::string egn, std::string injury, Date d) : name(name), egn(egn), injury(injury), apoitmentDate(d) {}
+        Patient(std::string name, std::string egn, const std::string& injury, Date d) : name(name), egn(egn), injury(injury), apoitmentDate(d) {}
 
         Patient() { // for testing purposses
             name = "Fyodor";

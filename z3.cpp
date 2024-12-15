@@ -20,7 +20,7 @@ class Car : public Vehicle {
         std::string plate;
 
     public:
-        Car(char b, int y, std::string p) : Vehicle(b, y), plate(p) {}
+        Car(char b, int y, const std::string& p) : Vehicle(b, y), plate(p) {}
 
         void showInfo() const override{
             std::cout << brand << " " << year << " " << plate << "\n";
